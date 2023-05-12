@@ -1,6 +1,7 @@
 package com.company.albatross;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -57,12 +58,28 @@ public class InputActivity extends AppCompatActivity {
                 ViewGroup.LayoutParams.WRAP_CONTENT));
         layout.setOrientation(LinearLayout.VERTICAL);
 
+        layout.setBackgroundResource(R.drawable.item_shape);
+        // Set layout parameters
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+        );
+        params.setMargins(30, 30, 30, 30);
+        layout.setLayoutParams(params);
+
         // 제목 추가
         TextView titleTextView = new TextView(this);
         String strAlbaNum = Integer.toString(num);
         titleTextView.setText("조건 " + strAlbaNum);
         titleTextView.setTextSize(18);
         layout.addView(titleTextView);
+
+        LinearLayout.LayoutParams titleParams = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+        );
+        titleParams.setMargins(30, 15, 0, 0);
+        titleTextView.setLayoutParams(titleParams);
 
         // 구분선을 추가
         View dividerView = new View(this);

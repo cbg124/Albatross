@@ -1,9 +1,11 @@
 package com.company.albatross;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.ListFragment;
 
 import android.view.LayoutInflater;
@@ -13,6 +15,9 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -26,12 +31,20 @@ public class MypageFragment extends ListFragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
+    private FragmentActivity mActivity;
+
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 
     public MypageFragment() {
         // Required empty public constructor
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        mActivity = getActivity();
     }
 
     /**
@@ -50,6 +63,14 @@ public class MypageFragment extends ListFragment {
         args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
+    }
+
+    private void setupListView() {
+
+
+        ArrayList<String> items = new ArrayList<>(Arrays.asList(getResources().getStringArray(R.array.mypagelist)));
+        ListAdapter2 adapter = new ListAdapter2(mActivity, items);
+        setListAdapter(adapter);
     }
 
     @Override
@@ -80,6 +101,7 @@ public class MypageFragment extends ListFragment {
 
             }
         });*/
+        setupListView();
 
         return rootView;
         //return inflater.inflate(R.layout.fragment_mypage, container, false);

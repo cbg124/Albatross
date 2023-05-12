@@ -12,32 +12,29 @@ import androidx.core.content.ContextCompat;
 
 import java.util.ArrayList;
 
-public class ListAdapter extends ArrayAdapter<String> {
-    private Context mContext;
-
-    public ListAdapter(Context context, ArrayList<String> items) {
-        super(context, 0, items);
-        mContext = context;
-    }
-
-    @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        View view = convertView;
-        if (view == null) {
-            view = LayoutInflater.from(mContext).inflate(R.layout.item_layout, parent, false);
-        }
-
-        String item = getItem(position);
-        TextView textView = view.findViewById(R.id.item_textview);
-        textView.setText(item);
-
-        // 아이템의 배경색 변경
-        if (position % 2 == 0) {
-            view.setBackgroundColor(Color.parseColor("#FFE3EE"));
-        } else {
-            view.setBackgroundColor(Color.parseColor("#FFE3EE"));
-        }
-
-        return view;
-    }
-}
+//public class ListAdapter extends ArrayAdapter<String> {
+//    private Context mContext;
+//
+//    public ListAdapter(Context context, ArrayList<String> items) {
+//        super(context, 0, items);
+//        mContext = context;
+//    }
+//
+//    @Override
+//    public View getView(int position, View convertView, ViewGroup parent) {
+//        View view = convertView;
+//        if (view == null) {
+//            view = LayoutInflater.from(mContext).inflate(R.layout.item_layout, parent, false);
+//        }
+//
+//        String item = getItem(position);
+//        TextView textView = view.findViewById(R.id.item_textview);
+//        textView.setText(item);
+//
+//        // 아이템의 배경색 변경
+//        view.setBackgroundColor(Color.parseColor("#FFE3EE"));
+//
+//
+//        return view;
+//    }
+//}
